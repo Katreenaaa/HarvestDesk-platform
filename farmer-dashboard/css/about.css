@@ -217,10 +217,18 @@
   }
 }
 
-/* Stats responsiveness */
+/* Stats responsiveness */ /* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .stats {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .stats {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 }
 
