@@ -69,17 +69,20 @@ nav a:hover::after {
    HAMBURGER MENU
 ========================= */
 .hamburger {
-  display: none;
+  display: none; /* only show via media query */
   flex-direction: column;
-  gap: 6px;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px; /* total height of the 3 lines + gaps */
   cursor: pointer;
   z-index: 1100;
 }
 
 .hamburger span {
-  width: 28px;
-  height: 2px;
-  background: #2d7530;
+  display: block;
+  height: 3px; /* line thickness */
+  width: 100%; /* full width of hamburger container */
+  background-color: #2d7530;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
@@ -94,14 +97,11 @@ nav a:hover::after {
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* =========================
-   RESPONSIVE (TABLETS + MOBILE)
-========================= */
+/* Show hamburger on tablets and mobiles */
 @media (max-width: 1024px) {
-  /* covers tablets */
   .hamburger {
     display: flex;
   }
@@ -113,22 +113,17 @@ nav a:hover::after {
     width: 220px;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     border-radius: 12px;
     padding: 1rem;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
     display: none;
     flex-direction: column;
     gap: 1rem;
+    z-index: 1000;
   }
 
   nav.show {
     display: flex;
-  }
-
-  nav a {
-    font-size: 1rem;
-    padding: 0.5rem;
   }
 
   nav a::after {
